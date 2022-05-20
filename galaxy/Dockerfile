@@ -4,7 +4,7 @@
 
 FROM ubuntu:18.04
 
-MAINTAINER Björn A. Grüning, bjoern.gruening@gmail.com
+MAINTAINER Arthur C.Y. Cheng, arturiaxnight@gmail.com
 
 # TODO
 #
@@ -40,16 +40,16 @@ ENV GALAXY_CONFIG_FILE=$GALAXY_CONFIG_DIR/galaxy.yml \
     GALAXY_HOME=/home/galaxy \
     GALAXY_LOGS_DIR=/home/galaxy/logs \
     GALAXY_DEFAULT_ADMIN_USER=admin \
-    GALAXY_DEFAULT_ADMIN_EMAIL=admin@galaxy.org \
+    GALAXY_DEFAULT_ADMIN_EMAIL=admin@twcc.ai \
     GALAXY_DEFAULT_ADMIN_PASSWORD=password \
     GALAXY_DEFAULT_ADMIN_KEY=fakekey \
     GALAXY_DESTINATIONS_DEFAULT=slurm_cluster \
     GALAXY_RUNNERS_ENABLE_SLURM=True \
     GALAXY_RUNNERS_ENABLE_CONDOR=False \
     GALAXY_CONFIG_DATABASE_CONNECTION=postgresql://galaxy:galaxy@localhost:5432/galaxy?client_encoding=utf8 \
-    GALAXY_CONFIG_ADMIN_USERS=admin@galaxy.org \
+    GALAXY_CONFIG_ADMIN_USERS=admin@twcc.ai \
     GALAXY_CONFIG_MASTER_API_KEY=HSNiugRFvgT574F43jZ7N9F3 \
-    GALAXY_CONFIG_BRAND="Galaxy Docker Build" \
+    GALAXY_CONFIG_BRAND="on TWCC" \
     GALAXY_CONFIG_STATIC_ENABLED=False \
     # Define the default postgresql database path
     PG_DATA_DIR_DEFAULT=/var/lib/postgresql/$PG_VERSION/main/ \
@@ -318,7 +318,7 @@ RUN chmod +x $GALAXY_ROOT/run.sh && sed -i 's/py-call-osafterfork.*//g' /etc/gal
 ENV GALAXY_CONFIG_INTEGRATED_TOOL_PANEL_CONFIG $EXPORT_DIR/galaxy-central/integrated_tool_panel.xml
 
 # Expose port 80, 443 (webserver), 21 (FTP server), 8800 (Proxy), 9002 (supvisord web app)
-EXPOSE :21
+EXPOSE :22
 EXPOSE :80
 EXPOSE :443
 EXPOSE :8800
